@@ -150,6 +150,11 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
                 ],
               ),
               SizedBox(height: 32.0),
+              Divider(
+                color: Colors.grey, // optionally specify the color of the line
+                thickness: 2,
+              ),
+              SizedBox(height: 32.0),
               Text(
                 'Hourly Forecast',
                 style: TextStyle(
