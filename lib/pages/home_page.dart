@@ -24,16 +24,22 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
     AssetImage backgroundImage;
     switch (weatherCondition) {
       case 'Cloudy':
-        backgroundImage = AssetImage('assets/images/cloudy_bg.jpg');
-        break;
       case 'Partly cloudy':
+      case 'Overcast':
         backgroundImage = AssetImage('assets/images/cloudy_bg.jpg');
         break;
+
       case 'Sunny':
         backgroundImage = AssetImage('assets/images/sunny_bg.jpg');
         break;
-      default:
+      case 'Patchy rain possible':
+      case 'Light rain':
+      case 'Heavy rain':
+      case 'Light rain shower':
         backgroundImage = AssetImage('assets/images/rainy_bg.jpg');
+        break;
+      default:
+        backgroundImage = AssetImage('assets/images/default.jpg');
     }
     return backgroundImage;
   }
