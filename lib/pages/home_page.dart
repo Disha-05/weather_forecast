@@ -20,6 +20,24 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
     return data;
   }
 
+  AssetImage getBackgroundImage(String weatherCondition) {
+    AssetImage backgroundImage;
+    switch (weatherCondition) {
+      case 'Cloudy':
+        backgroundImage = AssetImage('assets/images/cloudy_bg.jpg');
+        break;
+      case 'Partly cloudy':
+        backgroundImage = AssetImage('assets/images/cloudy_bg.jpg');
+        break;
+      case 'Sunny':
+        backgroundImage = AssetImage('assets/images/sunny_bg.jpg');
+        break;
+      default:
+        backgroundImage = AssetImage('assets/images/rainy_bg.jpg');
+    }
+    return backgroundImage;
+  }
+
   List<Map<String, dynamic>> hourlyWeather = [
     {
       'time': '12:00 PM',
@@ -77,19 +95,19 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    var backgroundImage;
-    List<String> weatherConditions = ['cloudy', 'sunny', 'rainy'];
-    String weatherCondition = weatherConditions[0];
-    switch (weatherCondition) {
-      case 'cloudy':
-        backgroundImage = AssetImage('assets/images/cloudy_bg.jpg');
-        break;
-      case 'sunny':
-        backgroundImage = AssetImage('assets/images/sunny_bg.jpg');
-        break;
-      default:
-        backgroundImage = AssetImage('assets/images/rainy_bg.jpg');
-    }
+    // var backgroundImage;
+    // List<String> weatherConditions = ['cloudy', 'sunny', 'rainy'];
+    // String weatherCondition = weatherConditions[0];
+    // switch (weatherCondition) {
+    //   case 'cloudy':
+    //     backgroundImage = AssetImage('assets/images/cloudy_bg.jpg');
+    //     break;
+    //   case 'sunny':
+    //     backgroundImage = AssetImage('assets/images/sunny_bg.jpg');
+    //     break;
+    //   default:
+    //     backgroundImage = AssetImage('assets/images/rainy_bg.jpg');
+    // }
     return Scaffold(
         // set the background color of the scaffold to transparent
         backgroundColor: Colors.transparent,
@@ -111,7 +129,7 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
             return Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: backgroundImage,
+                  image: getBackgroundImage(data?.description),
                   fit: BoxFit.cover,
                 ),
               ),
